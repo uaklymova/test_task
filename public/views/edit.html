@@ -1,0 +1,76 @@
+<div id = "content">
+    <div>
+        <h1>Edit profile</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <ol class="breadcrumb col-sm-7">
+                <li><a href="#">Home</a></li>
+                <li><a href="#" id="usernameLine"></a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#"><strong>Edit</strong></a></li>
+            </ol>
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row  edit-inputs col-lg-3 col-md-5 col-sm-6">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input  type="text" class="form-control" id="userName" placeholder="Username">
+            </div>
+            <br>
+            <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </span>
+                <!--<input type="DATE"  type="text" class="form-control" id="birthday" placeholder="Birthday"> no placeholder-->
+                <input type="text" class="form-control" id="birthday" placeholder="Birthday">
+            </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input type="text" class="form-control" id='city' placeholder="City">
+            </div>
+            <br>
+            <button class="btn btn-success pull-right"  id="saveProfile" href="#" type="button">Save</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    if (localStorage.User == undefined) {
+        $('#usernameLine').append('User1');
+    } else {
+        var _User = JSON.parse(localStorage.User);
+        if(_User[0] == "")
+        {
+            $('#usernameLine').append('User1');
+        } else {
+            $('#usernameLine').append(_User[0]);
+        };
+    };
+
+    $('#saveProfile').click(function(){
+        console.log(localStorage.User + " into edit");
+        var _userName = $('#userName').val();
+        var _birthday = $('#birthday').val();
+        var _city = $('#city').val();
+    
+        var _userData = [_userName,_birthday,_city];
+        console.log(_userData + " userData");
+
+        if (localStorage.User == undefined) {
+            localStorage.setItem("User", JSON.stringify(_userData));
+        } else {
+            localStorage.setItem("User", JSON.stringify(_userData));
+        };
+        $("#profile").removeClass('active');
+        $("#home").addClass('active');
+        $('#content').load("public/views/home.html");
+    });
+</script>

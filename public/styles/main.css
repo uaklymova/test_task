@@ -1,0 +1,75 @@
+﻿.tableHeaderHome {
+    background-color: #FDFDFD;
+}
+label {
+    margin: 0;
+    position: relative;
+}
+input[type="checkbox"] + label:after {
+    display: block;
+    margin-top: 4.3px;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid #666666;
+}
+input[type="checkbox"]:checked + label:before {
+    content: '✓';
+    position: absolute;
+    top: 8px;
+    left: 3px;
+    font-size: 16px;
+    line-height: 0.8;
+    color: #666666;
+}
+input[type="radio"] + label:after {
+    content: "";
+    display: block;
+    margin-top: 4.3px;
+    border: 1px solid #666666;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+}
+input[type="radio"]:checked + label:after {
+    border-radius: 14px;
+}
+input[type="radio"]:checked + label:before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 5px;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: #666666;
+}
+a {
+    color: #3D8BCD;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: #3D8BCD;
+}
+.edit-inputs {
+    margin-bottom: 15px;
+}
+.edit-table td {
+    padding: 10px;
+    border: none;
+}
+.edit-table td:first-child {
+    text-align: right;
+}
+.edit-table td:nth-child(2) {
+    font-weight: 700;
+}
+hr {
+    /*display: block;*/
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-color: gainsboro;
+}

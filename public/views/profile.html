@@ -1,0 +1,64 @@
+<div id = "content">
+    <div>
+        <h1>Profile</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <ol class="breadcrumb col-sm-7">
+                <li><a href="#">Home</a></li>
+                <li><a href="#" id="userNameLine"></a></li>
+                <li><a href="#"><strong>Profile</strong></a></li>
+            </ol>
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row col-sm-4">
+            <table  class="edit-table">
+                <tr>
+                    <td >Name:</td>
+                    <td id="userName"></td>
+                </tr>
+                <tr>
+                    <td>Birthday:</td>
+                    <td id="birthday"></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td id="city"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button class="btn btn-primary"  id="editProfile" href="edit.html" type="button">Edit</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    if (localStorage.User == undefined) {
+        console.log("into if");
+        $('#userNameLine').append('User1');
+        $('#userName').append('<strong>'+'User1'+'</strong>');
+        $('#birthday').append('<strong>'+'10.12.1990'+'</strong>');
+        $('#city').append('<strong>'+'Los Angeles'+'</strong>');
+    } else {
+    var _User = JSON.parse(localStorage.User);
+        if(_User[0] == "")
+        {
+            $('#userNameLine').append('User1');
+        } else {
+            $('#userNameLine').append(_User[0]);
+        };
+
+        $('#userName').append('<strong>'+_User[0]+'</strong>');
+        $('#birthday').append('<strong>'+_User[1]+'</strong>');
+        $('#city').append('<strong>'+_User[2]+'</strong>');
+    };
+
+    $('#editProfile').click(function(){
+        $('#content').load("public/views/edit.html");
+    });
+</script>
+ 

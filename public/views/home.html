@@ -1,0 +1,82 @@
+<div id = "content" >
+    <div>
+        <h1>Dashboard</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <ol class="breadcrumb col-sm-7">
+                <li><a href="#">Home</a></li>
+                <li><a href="#"><strong>Users list</strong></a></li>
+            </ol>
+        </div>
+    </div>
+    <hr>
+
+    <div class="table-responsive here">
+        <table class="table">
+            <thead class="tableHeaderHome">
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Birthday</th>
+                <th>City</th>
+                <th>Active</th>
+                <th>Boss</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td><a  href="#">John</a></td>
+                <td>06.07.2008</td>
+                <td>Budapest</td>
+                <td>
+                    <input id='checkbox-1' name="checkbox" type="checkbox" hidden>
+                    <label for="checkbox-1">
+                    </label>
+                </td>
+                <td>
+                    <input id='radio-1' type="radio" name="radio" hidden>
+                    <label for="radio-1"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><a href="#">Mary</a></td>
+                <td>01.02.2003</td>
+                <td>Berlin</td>
+                <td>
+                    <input id='checkbox-2' type="checkbox" name="checkbox" type="checkbox" hidden>
+                    <label for="checkbox-2">
+                    </label>
+                <td>
+                    <input id='radio-2' type="radio" name="radio" hidden>
+                    <label for="radio-2"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><a href="#">James</a></td>
+                <td>04.05.2006</td>
+                <td>Vienna</td>
+                <td>
+                    <input id='checkbox-3' type="checkbox" name="checkbox" type="checkbox" hidden>
+                    <label for="checkbox-3">
+                    </label>
+                <td>
+                    <input id='radio-3' type="radio" name="radio" hidden>
+                    <label for="radio-3"></label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $(".here a ").click(function(){
+        console.log("here");
+        $("#home").removeClass('active');
+        $("#profile").addClass('active');
+        $('#content').load("public/views/profile.html");
+    });
+</script>
