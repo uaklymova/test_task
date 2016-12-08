@@ -38,25 +38,23 @@
 
 <script>
     if (localStorage.User == undefined) {
-        console.log("into if");
+//        console.log("into if");
         $('#userNameLine').append('User1');
         $('#userName').append('<strong>'+'User1'+'</strong>');
         $('#birthday').append('<strong>'+'10.12.1990'+'</strong>');
         $('#city').append('<strong>'+'Los Angeles'+'</strong>');
     } else {
-    var _User = JSON.parse(localStorage.User);
+        var _User = JSON.parse(localStorage.User);
         if(_User[0] == "")
         {
             $('#userNameLine').append('User1');
         } else {
             $('#userNameLine').append(_User[0]);
         };
-
         $('#userName').append('<strong>'+_User[0]+'</strong>');
         $('#birthday').append('<strong>'+_User[1]+'</strong>');
         $('#city').append('<strong>'+_User[2]+'</strong>');
     };
-
     $('#editProfile').click(function(){
         $('#content').load("public/views/edit.html");
     });

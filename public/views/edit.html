@@ -23,10 +23,9 @@
             </div>
             <br>
             <div class="input-group">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-user"></span>
-                        </span>
-                <!--<input type="DATE"  type="text" class="form-control" id="birthday" placeholder="Birthday"> no placeholder-->
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
                 <input type="text" class="form-control" id="birthday" placeholder="Birthday">
             </div>
             <br>
@@ -56,19 +55,15 @@
     };
 
     $('#saveProfile').click(function(){
-        console.log(localStorage.User + " into edit");
+//        console.log(localStorage.User + " into edit");
         var _userName = $('#userName').val();
         var _birthday = $('#birthday').val();
         var _city = $('#city').val();
     
         var _userData = [_userName,_birthday,_city];
-        console.log(_userData + " userData");
+//        console.log(_userData + " userData");
+        localStorage.setItem("User", JSON.stringify(_userData));
 
-        if (localStorage.User == undefined) {
-            localStorage.setItem("User", JSON.stringify(_userData));
-        } else {
-            localStorage.setItem("User", JSON.stringify(_userData));
-        };
         $("#profile").removeClass('active');
         $("#home").addClass('active');
         $('#content').load("public/views/home.html");
